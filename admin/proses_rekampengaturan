@@ -1,0 +1,18 @@
+<?php
+	include "../koneksi.php";
+	if(isset($_POST['rekam']))
+	{
+		$denda=$_POST['txtDenda'];
+		$jumhari=$_POST['txtJumHari'];
+		$jumbuku=$_POST['txtJumBuku'];
+	}
+	$sql=mysqli_query($connect_db,"insert into tbl_pengaturan(denda,max_pinjambuku,max_jumbuku)
+		  values('$denda','$jumhari','$jumbuku')");
+	if($sql)	  
+		{
+		echo '<script>
+			  alert("Data anda kini telah terekam");
+		      document.location="menu.php?page=form_pengaturan";
+			  </script>';   
+	}
+?>
